@@ -33,8 +33,11 @@ pub use self::server::ServerSessionResult;
 use rml_amf0::Amf0Value;
 use std::collections::HashMap;
 
+extern crate serde;
+use self::serde::Serialize;
+
 /// Contains the metadata information a stream may advertise on publishing
-#[derive(PartialEq, Debug, Clone)]
+#[derive(PartialEq, Debug, Clone, Serialize)]
 pub struct StreamMetadata {
     pub video_width: Option<u32>,
     pub video_height: Option<u32>,
